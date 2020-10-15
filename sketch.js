@@ -7,7 +7,7 @@ const Body = Matter.Body;
 
 var paper1;
 
-var dustbin1, dustbin2, dustbin3;
+var dustbin1;
 
 var ground1;
 
@@ -20,10 +20,8 @@ function setup() {
 
 	engine = Engine.create();
 	world = engine.world;
-	dustbin1 = new Dustbin(1090,620,20,100);
-	dustbin2 = new Dustbin(1310,620,20,100);
-	dustbin3 = new Dustbin(1200,660,200,20);
-	paper1 = new Paper(200,450,20);
+	paper1 = new Paper(200,450,70);
+	dustbin1 = new dustbin(1090,660,20,100);
 	ground1 = new Ground(800,680,1600,20);
 	
 	  
@@ -32,19 +30,17 @@ function setup() {
 
 function draw() {
 	
-	background(0);
+	background("white");
     Engine.update(engine);
-	dustbin1.display();
-	dustbin2.display();
-	dustbin3.display();
 	paper1.display();
-	ground1.display();
+	ground1.display();	
+	dustbin1.display();
 }
 
 function keyPressed() {
 	if (keyCode === UP_ARROW) {
 
-	  Matter.Body.applyForce(paper1.body,paper1.body.position,{x:20,y:-20});
+	  Matter.Body.applyForce(paper1.body,paper1.body.position,{x:280,y:-280});
   
 	}
 }

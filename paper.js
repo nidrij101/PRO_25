@@ -7,11 +7,11 @@ class Paper {
             'density':1.2,
         }
         
+        this.image = loadImage("paper_img.png");
         this.x = x;
         this.y = y;
         this.r = r;
         this.body = Bodies.circle(this.x,this.y,this.r/2,options)
-        this.image = loadImage("paper_img.png");
 
         World.add(world, this.body);
     }
@@ -19,8 +19,8 @@ class Paper {
         var pos = this.body.position
         push();
         translate(pos.x,pos.y)
-        ellipseMode(RADIUS);
-        ellipse(0,0, this.r, this.r);
+        imageMode(CENTER);
+        image(this.image, 0,0, this.r, this.r);
         pop();
     }
   };
